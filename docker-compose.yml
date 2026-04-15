@@ -1,0 +1,19 @@
+services:
+  auth-service:
+    build: ./auth-service
+    ports:
+      - "3000:3000"
+
+  product-service:
+    build: ./product-service
+    ports:
+      - "3001:3001"
+
+  order-service:
+    build: ./order-service
+    ports:
+      - "3002:3002"
+    depends_on:
+      - product-service
+      - auth-service
+  
